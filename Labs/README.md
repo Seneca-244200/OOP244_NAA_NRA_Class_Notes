@@ -212,13 +212,13 @@ Run the submitter command provided for that specific work.
 The command will usually look similar to this:
 
 ```bash
-~fardad.soleimanloo/submit 244/category/submission_name
+~fardad.soleimanloo/submit 244/delivarable/section_name
 ```
 
 For example, a lab submission may look like:
 
 ```bash
-~fardad.soleimanloo/submit 244/lab/l01_nxx
+~fardad.soleimanloo/submit 244/lab01/nxx
 ```
 
 Replace the section code, such as `nxx`, with the correct section code given by your professor.
