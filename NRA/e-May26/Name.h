@@ -3,7 +3,7 @@
 #define SENECA_NAME_H
 namespace seneca {
     class Name {
-        char* m_first{};
+        char* m_first{}; //C++ member variable, (OOP: attributes)
         char* m_last{};
         void freeMem();
     public:
@@ -11,7 +11,7 @@ namespace seneca {
         Name(const char* first, const char* last);
         ~Name();
         void set(const char* first, const char* last);
-        void display()const;
+        void display()const;// C++ memeber function (OOP: method)
     };
 }
 #endif // !SENECA_NAME_H

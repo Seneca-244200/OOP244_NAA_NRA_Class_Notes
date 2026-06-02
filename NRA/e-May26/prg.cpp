@@ -5,8 +5,8 @@ using namespace seneca;
 
 int main() {
     cout << "OOP244 NRA - May 26" << endl;
-    Name n;
-    Name J("John", "Doe");
+    Name n;// no arg constructor, default constructor
+    Name J("John", "Doe"); // 
  //   n.set("Fred", "Soley");
     n.display();
     cout << endl;
