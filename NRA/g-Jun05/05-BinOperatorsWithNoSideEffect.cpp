@@ -10,7 +10,7 @@ public:
       m_value = value;
       m_capacity = capacity;
    }
-   ostream& operator~()const {
+   ostream& display()const {
       cout.setf(ios::fixed);
       cout.precision(2);
       cout << "(" << m_value << "/" << m_capacity << ")";
@@ -36,38 +36,20 @@ public:
       Bucket result(m_value + value, m_capacity);
       return result;
    }
-   Bucket& operator++() {
-      operator+=(1);
-      return *this;
-   }
-   // the int is NOT and argument, it is flag to idicate
-   // this is a post fix operator
-   Bucket operator++(int) {
-      Bucket old = *this;
-      operator+=(1);
-      return old;
-   }
-   // type conversion overload 
-   // type cast overload
-   operator double()const {
-      return m_value;
-   }
-   double operator[](int index) const {
-      double res{ -1 };
-      if (index == 0) res = m_value;
-      else if (index == 1) res = m_capacity;
-      return res;
-   }
 };
 
-// we just overloaded unary operator postfix with side-effect
+// we just overloaded binary operators with NO side-effect
 int main() {
    cout << "OOP244 NRA - Jun 05" << endl;
-   Bucket B(10);
-  
-   cout << "value: " << B[0] << endl;
-   cout << "capacity: " << B[1] << endl;
-   cout << "Garbage!: " << B[24] << endl;
+   Bucket B(10) , C;
+   // bin operator with NO side-effect
+   B.display() << ": content of B" << endl;
+   C.display() << ": content of C" << endl;
+   cout << "C = B + 2;" << endl;
+   C = B + 2; //  B.operator+(2); you must make it a const method
+   B.display() << ": content of B" << endl;
+   C.display() << ": content of C" << endl;
+
 
    return 0;
 }

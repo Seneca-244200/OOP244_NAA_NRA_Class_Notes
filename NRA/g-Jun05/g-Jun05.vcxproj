@@ -139,7 +139,6 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\f-Jun02\08-BucketWithAdd.cpp" />
     <ClCompile Include="prg.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

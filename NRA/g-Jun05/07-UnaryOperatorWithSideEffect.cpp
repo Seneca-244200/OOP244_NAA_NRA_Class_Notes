@@ -40,34 +40,21 @@ public:
       operator+=(1);
       return *this;
    }
-   // the int is NOT and argument, it is flag to idicate
-   // this is a post fix operator
-   Bucket operator++(int) {
-      Bucket old = *this;
-      operator+=(1);
-      return old;
-   }
-   // type conversion overload 
-   // type cast overload
-   operator double()const {
-      return m_value;
-   }
-   double operator[](int index) const {
-      double res{ -1 };
-      if (index == 0) res = m_value;
-      else if (index == 1) res = m_capacity;
-      return res;
-   }
 };
 
-// we just overloaded unary operator postfix with side-effect
+// we just overloaded unary operator with side-effect
 int main() {
    cout << "OOP244 NRA - Jun 05" << endl;
-   Bucket B(10);
-  
-   cout << "value: " << B[0] << endl;
-   cout << "capacity: " << B[1] << endl;
-   cout << "Garbage!: " << B[24] << endl;
+   Bucket B(10) , C;
+   // unary operator (prefix) with side-effect
+   ~B << ": content of B" << endl;
+   ~C << ": content of C" << endl;
+   cout << "C = ++B;" << endl;
+   C = ++B; // B.operator++();
+   
+   ~B << ": content of B" << endl;
+   ~C << ": content of C" << endl;
+
 
    return 0;
 }

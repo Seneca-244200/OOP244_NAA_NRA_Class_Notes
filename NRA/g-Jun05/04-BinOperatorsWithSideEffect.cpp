@@ -10,7 +10,7 @@ public:
       m_value = value;
       m_capacity = capacity;
    }
-   ostream& operator~()const {
+   ostream& display()const {
       cout.setf(ios::fixed);
       cout.precision(2);
       cout << "(" << m_value << "/" << m_capacity << ")";
@@ -32,42 +32,20 @@ public:
       }
       return ret;
    }
-   Bucket operator+(double value)const {
-      Bucket result(m_value + value, m_capacity);
-      return result;
-   }
-   Bucket& operator++() {
-      operator+=(1);
-      return *this;
-   }
-   // the int is NOT and argument, it is flag to idicate
-   // this is a post fix operator
-   Bucket operator++(int) {
-      Bucket old = *this;
-      operator+=(1);
-      return old;
-   }
-   // type conversion overload 
-   // type cast overload
-   operator double()const {
-      return m_value;
-   }
-   double operator[](int index) const {
-      double res{ -1 };
-      if (index == 0) res = m_value;
-      else if (index == 1) res = m_capacity;
-      return res;
-   }
 };
 
-// we just overloaded unary operator postfix with side-effect
+// we just overloaded binary operators with side-effect
 int main() {
    cout << "OOP244 NRA - Jun 05" << endl;
-   Bucket B(10);
-  
-   cout << "value: " << B[0] << endl;
-   cout << "capacity: " << B[1] << endl;
-   cout << "Garbage!: " << B[24] << endl;
+   Bucket B(10) , C;
+   B.display() << " is B content " << endl;
+   C = B = 12; // B.operator=(12); operator= returns *this;
+   C.display() << " is the value of C" << endl;
+   B.display() << " is the new value " << endl;
+   B += 1 ; // B.operator+=(1);
+   B.display() << " added one!" << endl;
+
+
 
    return 0;
 }

@@ -52,22 +52,18 @@ public:
    operator double()const {
       return m_value;
    }
-   double operator[](int index) const {
-      double res{ -1 };
-      if (index == 0) res = m_value;
-      else if (index == 1) res = m_capacity;
-      return res;
-   }
 };
 
 // we just overloaded unary operator postfix with side-effect
 int main() {
    cout << "OOP244 NRA - Jun 05" << endl;
    Bucket B(10);
-  
-   cout << "value: " << B[0] << endl;
-   cout << "capacity: " << B[1] << endl;
-   cout << "Garbage!: " << B[24] << endl;
+   double bvalue{ };
+   // unary operator postfix with side-effect
+   ~B << ": content of B" << endl;
+   bvalue = B;
+
+   cout << "the value of B is: " << bvalue << endl;
 
    return 0;
 }

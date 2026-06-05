@@ -18,8 +18,5 @@
     <ClCompile Include="prg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\f-Jun02\08-BucketWithAdd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
