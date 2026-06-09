@@ -60,4 +60,34 @@ namespace seneca {
       else if (index == 1) attrPtr = &m_capacity;
       return *attrPtr;
    }
+
+   std::ostream& Bucket::display(std::ostream& ostr)const {
+      ostr.setf(ios::fixed);
+      ostr.precision(1);
+      ostr << "Bucket(" << m_value << "/" << m_capacity << ")";
+      ostr.unsetf(ios::fixed);
+      return ostr;
+   }
+
+   std::istream& Bucket::read(std::istream& istr) {
+      if (&istr == &cin) {
+         cout << "Value: ";
+      }
+      istr >> m_value;
+      if (&istr == &cin) {
+         cout << "Capacity: ";
+      }
+      istr >> m_capacity;
+      return istr;
+   }
+
+   double operator+=(double& leftOperand, const Bucket& rightOperand) {
+      return leftOperand += rightOperand[1]; // index one is the capacity
+   }
+   ostream& operator<<(ostream& leftOp, const Bucket& rightOp){
+      return rightOp.display(leftOp);
+   }
+   istream& operator>>(istream& leftOp, Bucket& righOp) {
+      return righOp.read(leftOp);
+   }
 }
